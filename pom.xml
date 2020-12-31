@@ -28,13 +28,6 @@
         <hutool-all.version>5.1.0</hutool-all.version>
     </properties>
 
-    <distributionManagement>
-        <site>
-            <id>website</id>
-            <url>scp://webhost.company.com/www/website</url>
-        </site>
-    </distributionManagement>
-
     <!-- 子模块继承之后，提供作用：锁定版本 + 子module不用谢groupId和version -->
     <dependencyManagement>
         <dependencies>
