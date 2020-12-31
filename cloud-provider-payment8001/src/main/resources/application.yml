@@ -24,6 +24,10 @@ eureka:
   instance:
     instance-id: payment8001
     prefer-ip-address: true
+    # 默认发送心跳的时间间隔30s
+    lease-renewal-interval-in-seconds: 1
+    # 过期时间默认90s 设置服务过期时间配置,超过这个时间没有接收到心跳EurekaServer就会将这个实例剔除，一般是lease-renewal-interval-in-seconds的3倍
+    lease-expiration-duration-in-seconds: 2
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
