@@ -1,0 +1,11 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-consumer-orderzk
+
+  cloud:
+    zookeeper:
+      # 注册到zk集群地址采用逗号分割
+      connect-string: localhost:2181
