@@ -4,8 +4,10 @@ import com.djl.springcloud.entities.CommonResult;
 import com.djl.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,7 +34,7 @@ public class OrderController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @Resource
+    @Resource(name = "RestTemplate")
     private RestTemplate restTemplate;
 
     @GetMapping("/consumer/payment/create")
@@ -61,5 +63,23 @@ public class OrderController {
             System.out.println(host + " " + " " + uri + " " + port + " " + metadata);
         }
         return this.discoveryClient;
+    }
+
+    @GetMapping(value = "/consumer/payment/getForEntity/{id}")
+    public CommonResult<Payment> getPayment2(@PathVariable("id") long id) {
+        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
+        if (entity.getStatusCode().is2xxSuccessful()) {
+            return entity.getBody();
+        }
+        return new CommonResult<>(444, "操作失败");
+    }
+
+    @Resource(name = "RestTemplate2")
+    private RestTemplate restTemplate2;
+
+    @GetMapping(value = "/consumer/payment/lb")
+    public String getPaymentLB() {
+        String result = restTemplate2.getForObject(PAYMENT_URL + "/payment/lb", String.class);
+        return result;
     }
 }
