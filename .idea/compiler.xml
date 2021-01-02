@@ -17,6 +17,7 @@
         <module name="cloud-eureka-server7002" />
         <module name="cloud-consumer-order80" />
         <module name="cloud-provider-payment8006" />
+        <module name="cloud-consumer-feign-order80" />
       </profile>
     </annotationProcessing>
   </component>

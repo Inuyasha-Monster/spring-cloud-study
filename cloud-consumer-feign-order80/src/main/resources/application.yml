@@ -1,0 +1,15 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/ # 集群版本
+
+# 设置feign的客户端超时时间(OpenFeign默认支持ribbon实现所以直接设置ribbon的时间)
+ribbon:
+  # 指的是建立链接后从服务端读取可用资源的超时时间
+  ReadTimeout: 5000
+  # 建立连接的最大超时时间
+  ConnectTimeout: 5000
