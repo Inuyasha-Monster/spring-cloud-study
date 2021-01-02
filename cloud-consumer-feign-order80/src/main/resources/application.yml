@@ -13,3 +13,7 @@ ribbon:
   ReadTimeout: 5000
   # 建立连接的最大超时时间
   ConnectTimeout: 5000
+
+logging:
+  level:
+    com.djl.springcloud.service.PaymentService: debug
