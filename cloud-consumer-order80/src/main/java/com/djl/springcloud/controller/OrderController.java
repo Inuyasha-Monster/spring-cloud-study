@@ -34,7 +34,7 @@ public class OrderController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @Resource(name = "RestTemplate")
+    @Resource
     private RestTemplate restTemplate;
 
     @GetMapping("/consumer/payment/create")
@@ -74,12 +74,12 @@ public class OrderController {
         return new CommonResult<>(444, "操作失败");
     }
 
-    @Resource(name = "RestTemplate2")
-    private RestTemplate restTemplate2;
+//    @Resource(name = "RestTemplate2")
+//    private RestTemplate restTemplate2;
 
     @GetMapping(value = "/consumer/payment/lb")
     public String getPaymentLB() {
-        String result = restTemplate2.getForObject(PAYMENT_URL + "/payment/lb", String.class);
+        String result = restTemplate.getForObject(PAYMENT_URL + "/payment/lb", String.class);
         return result;
     }
 }
