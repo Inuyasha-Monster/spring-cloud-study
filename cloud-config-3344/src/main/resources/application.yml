@@ -8,9 +8,22 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/zzyybs/springcloud-config.git #GitHub上面的git仓库名字
+          uri: https://github.com/djl394922860/interview-preparation.git #GitHub上面的git仓库名字
           ####搜索目录
           search-paths:
-            - springcloud-config
-      ####读取分支
-      label: master
+            - config
+          username: djl394922860
+          password: djl394922860=
+          default-label: master
+  #rabbitmq相关配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
