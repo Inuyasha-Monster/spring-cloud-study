@@ -16,8 +16,10 @@
         <module name="cloud-eureka-server7002" />
         <module name="cloud-consumer-hystrix-dashboard9001" />
         <module name="cloud-consumer-orderConsul80" />
+        <module name="cloud-gateway-gateway9527" />
         <module name="cloud-consumer-order80" />
         <module name="cloud-provider-hystrix-payment8001" />
+        <module name="cloud-config-3344" />
         <module name="cloud-provider-payment8006" />
         <module name="cloud-consumer-feign-order80" />
       </profile>
