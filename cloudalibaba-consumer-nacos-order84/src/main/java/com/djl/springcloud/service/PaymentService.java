@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author djl
  * @create 2021/1/7 17:24
  */
-@FeignClient(value = "nacos-payment-provider",fallback = PaymentFallbackService.class)
+@FeignClient(value = "nacos-payment-provider", fallback = PaymentFallbackService.class)
 public interface PaymentService {
 
     @GetMapping(value = "/paymentSQL/{id}")
