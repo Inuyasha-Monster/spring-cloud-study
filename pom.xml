@@ -39,6 +39,7 @@
         <module>cloudalibaba-provider-payment9003</module>
         <module>cloudalibaba-provider-payment9004</module>
         <module>seata-order-service2001</module>
+        <module>seata-storage-service-2002</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
