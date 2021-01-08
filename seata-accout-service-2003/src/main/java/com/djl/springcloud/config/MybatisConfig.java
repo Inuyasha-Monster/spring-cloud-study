@@ -7,9 +7,8 @@ import org.springframework.context.annotation.Configuration;
  * @className: MybatisConfig
  * @description:
  * @author: liusCoding
- * @create: 2020-06-12 10:19
+ * @create: 2020-06-12 09:49
  */
-
 @Configuration
 @MapperScan({"com.djl.springcloud.dao"})
 public class MybatisConfig {
