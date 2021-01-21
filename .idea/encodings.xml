@@ -63,6 +63,12 @@
     <file url="file://$PROJECT_DIR$/seata-order-service2001/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/seata-storage-service-2002/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/seata-storage-service-2002/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/seata14-account-service-20000/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/seata14-account-service-20000/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/seata14-order-service-20001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/seata14-order-service-20001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/seata14-storage-service-20002/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/seata14-storage-service-20002/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

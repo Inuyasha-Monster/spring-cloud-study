@@ -24,10 +24,13 @@
         <module name="cloudalibaba-config-nacos-client3377" />
         <module name="cloud-provider-payment8002" />
         <module name="cloud-provider-payment8004" />
+        <module name="seata14-storage-service-20002" />
         <module name="cloud-api-commons" />
         <module name="cloud-consumer-orderzk80" />
         <module name="cloud-provider-payment8001" />
+        <module name="seata14-order-service-20001" />
         <module name="cloud-consumer-hystrix-dashboard9001" />
+        <module name="seata14-account-service-20000" />
         <module name="cloudalibaba-provider-payment9004" />
         <module name="cloudalibaba-provider-payment9003" />
         <module name="cloudalibaba-provider-payment9002" />
