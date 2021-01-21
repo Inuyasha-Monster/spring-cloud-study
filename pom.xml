@@ -41,6 +41,9 @@
         <module>seata-order-service2001</module>
         <module>seata-storage-service-2002</module>
         <module>seata-accout-service-2003</module>
+        <module>sbm-account-service-20000</module>
+        <module>sbm-business-service-20001</module>
+        <module>sbm-storage-service-20002</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
