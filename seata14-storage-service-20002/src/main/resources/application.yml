@@ -1,17 +1,15 @@
 server:
-  port: 20022
+  port: 20002
 
 spring:
   application:
     name: seata14-storage-service
   cloud:
-    alibaba:
-      seata:
-        tx-service-group: fsp_tx_group
     nacos:
       discovery:
         server-addr: localhost:8848
   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/seat-storage
     username: root
@@ -24,5 +22,23 @@ logging:
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
+
+# 分布式事务配置
+seata:
+  tx-service-group: mall_tx_group
+  #  enable-auto-data-source-proxy: true
+  registry:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      namespace: ed22f60e-5646-4cbb-ad3c-db11d3b0b4af
+      group: SEATA_GROUP
+  config:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      namespace: ed22f60e-5646-4cbb-ad3c-db11d3b0b4af
+      group: SEATA_GROUP
+  enabled: true
 
 
