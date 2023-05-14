@@ -21,5 +21,12 @@ logging:
 
 
 feign:
+#  client:
+#    config:
+#      CLOUD-PROVIDER-SERVICE:
+#        readTimeout: 30000
+#        connectTimeout: 10000
+#  httpclient:
+#    connection-timeout: 3000
   hystrix:
     enabled: true
