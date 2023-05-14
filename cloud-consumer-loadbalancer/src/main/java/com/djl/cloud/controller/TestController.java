@@ -1,14 +1,19 @@
 package com.djl.cloud.controller;
 
 import com.djl.cloud.config.RandomServiceInstanceChoose;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class TestController {
@@ -22,6 +27,9 @@ public class TestController {
     @Resource(name = "restTemplateForLoadBalancer")
     private RestTemplate restTemplateForLoadBalancer;
 
+    @Resource(name = "grayRestTemplate")
+    private RestTemplate grayRestTemplate;
+
     @GetMapping("/test")
     public String test() {
         final RandomServiceInstanceChoose choose = new RandomServiceInstanceChoose(discoveryClient);
@@ -34,5 +42,16 @@ public class TestController {
     public String testForLoadBalancer() {
         final String url = "http://nacos-config-client/getCurrentPort";
         return restTemplateForLoadBalancer.getForEntity(url, String.class).getBody();
+    }
+
+    @GetMapping("/testForGrayRestTemplate")
+    public String testForGrayRestTemplate(HttpServletRequest request) {
+        HttpHeaders headers = new HttpHeaders();
+        if (StringUtils.isNotEmpty(request.getHeader("Gray"))) {
+            headers.set("Gray", request.getHeader("Gray").equals("true") ? "true" : "false");
+        }
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        final String url = "http://nacos-config-client/getCurrentPort";
+        return grayRestTemplate.exchange(url, HttpMethod.GET, entity, String.class).getBody();
     }
 }

@@ -4,14 +4,14 @@ spring:
   # spring cloud 配置
   cloud:
     loadbalancer:
-      cache:
-        # 默认 spring cloud 的 loadBalancer(内部的CachingServiceInstanceListSupplier会默认缓存服务实例)
-        # ObjectProvider<LoadBalancerCacheManager> cacheManagerProvider = context
-        #					.getBeanProvider(LoadBalancerCacheManager.class);
-        # 通过上述代码进行委托包装DiscoveryClientServiceInstanceListSupplier实例
-        enabled: false
+      #      cache:
+      #        # 默认 spring cloud 的 loadBalancer(内部的CachingServiceInstanceListSupplier会默认缓存服务实例)
+      #        # ObjectProvider<LoadBalancerCacheManager> cacheManagerProvider = context
+      #        #					.getBeanProvider(LoadBalancerCacheManager.class);
+      #        # 通过上述代码进行委托包装DiscoveryClientServiceInstanceListSupplier实例
+      #        enabled: false
       ribbon:
-        enabled: false
+        enabled: true
     nacos:
       discovery:
         server-addr: localhost:8848 #配置Nacos地址
