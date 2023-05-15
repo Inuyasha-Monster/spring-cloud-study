@@ -42,6 +42,7 @@
         <module>seata-storage-service-2002</module>
         <module>seata-accout-service-2003</module>
         <module>cloud-consumer-loadbalancer</module>
+        <module>cloud-2023-study</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
