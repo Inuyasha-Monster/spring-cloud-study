@@ -13,5 +13,7 @@ spring:
       ribbon:
         enabled: true
     nacos:
+      config:
+        server-addr: localhost:8848 #配置Nacos地址
       discovery:
         server-addr: localhost:8848 #配置Nacos地址

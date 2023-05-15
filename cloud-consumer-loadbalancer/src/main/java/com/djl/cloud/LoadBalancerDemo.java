@@ -1,6 +1,7 @@
 package com.djl.cloud;
 
 import com.djl.cloud.config.RibbonRequestContextHolder;
+import com.djl.cloud.rest.GrayInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -41,6 +42,15 @@ public class LoadBalancerDemo {
         });
         return restTemplate;
     }
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate dynamicGrayRestTemplate(GrayInterceptor grayInterceptor) {
+        final RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getInterceptors().add(grayInterceptor);
+        return restTemplate;
+    }
+
 
     public static void main(String[] args) {
         SpringApplication.run(LoadBalancerDemo.class, args);

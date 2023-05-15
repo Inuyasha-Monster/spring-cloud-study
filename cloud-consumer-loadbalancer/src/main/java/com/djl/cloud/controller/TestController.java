@@ -30,6 +30,9 @@ public class TestController {
     @Resource(name = "grayRestTemplate")
     private RestTemplate grayRestTemplate;
 
+    @Resource(name = "dynamicGrayRestTemplate")
+    private RestTemplate dynamicGrayRestTemplate;
+
     @GetMapping("/test")
     public String test() {
         final RandomServiceInstanceChoose choose = new RandomServiceInstanceChoose(discoveryClient);
@@ -53,5 +56,16 @@ public class TestController {
         HttpEntity<String> entity = new HttpEntity<>(headers);
         final String url = "http://nacos-config-client/getCurrentPort";
         return grayRestTemplate.exchange(url, HttpMethod.GET, entity, String.class).getBody();
+    }
+
+    @GetMapping("/testForDynamicGrayRestTemplate")
+    public String testForDynamicGrayRestTemplate(HttpServletRequest request) {
+        HttpHeaders headers = new HttpHeaders();
+        if (StringUtils.isNotEmpty(request.getHeader("Gray"))) {
+            headers.set("Gray", request.getHeader("Gray"));
+        }
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        final String url = "http://nacos-config-client/getCurrentPort";
+        return dynamicGrayRestTemplate.exchange(url, HttpMethod.GET, entity, String.class).getBody();
     }
 }
